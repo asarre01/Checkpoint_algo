@@ -1,0 +1,33 @@
+ALGORITHM counter
+
+VAR
+    //Variable qui récupére le nombre de caractères
+    char_counter: INTEGER := 0;
+    //Variable qui récupére le nombre de voyelles
+    vowel_counter: INTEGER := 0;
+    //Variable qui récupére le nombre de mots
+    word_counter: INTEGER := 0;
+    //Variable qui récupére le nombre d'itérations
+    i: INTEGER := 0;
+    //Variable contenant une phrase  comme exemple
+    sentence: STRING := "The rain splashes the leaves.";
+
+BEGIN
+    // LA boucle FOR permet de parcourir la phrase caractère par caractère
+    FOR i FROM 1 TO LENGTH(sentence) STEP 1 DO
+        //Condition pour vérifier si le caractère est une voyelle et le compte
+        IF (sentence[i] = 'a' OR sentence[i] = 'e' OR sentence[i] = 'i' OR sentence[i] = 'u' OR sentence[i] = 'o' OR sentence[i] = 'y') THEN
+            vowel_counter := vowel_counter + 1;
+        //Condition pour compter le nombre de mots
+        ELSIF (sentence[i] = ' ' OR sentence[i] = '.') THEN
+            word_counter := word_counter + 1;
+        END_IF
+        //Instruction pour compter le nombre de caractéres
+        char_counter := char_counter + 1;
+    END_FOR
+    //Affichage de la solution
+    WRITE("This phrase: \"" + sentence + "\" contains:");
+    WRITE("Number of characters: " + char_counter + " characters,");
+    WRITE("Number of vowels: " + vowel_counter + " vowels,");
+    WRITE("Number of words: " + word_counter + " words.");
+END
